@@ -76,11 +76,7 @@ const usuariosGet = async(req = request, res = response) => {
 
     const usuario = await Usuario.findByIdAndUpdate(id, {estado:false});
 
-
-    res.status(400).json({
-        ok:true,
-        usuario
-    });
+    res.json(usuario);
   };
 
  const usuariosPatch = (req = request, res = response) => {
