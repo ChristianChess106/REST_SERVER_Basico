@@ -26,6 +26,10 @@
     </button>
 
     <script>
+        let url = (window.location.hostname.includes('localhost')) ?
+            'http://localhost:8082/api/auth/google' :
+            'https://rest-server-mijitaos106.herokuapp.com/api/auth/google';
+
         function handleCredentialResponse(response) {
 
             //google token: ID_TOKEN
@@ -34,7 +38,7 @@
                 id_token: response.credential
             };
 
-            fetch('http://localhost:8082/api/auth/google', {
+            fetch(url, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
